@@ -14,7 +14,7 @@ export default class FetchService {
     return new Promise(resolve => {
       ipc.send('file-list-request', dir)
       ipc.on('file-list-reply', (event, args) => {
-        var pattern=/\.(gif|jpg|jpeg|tiff|png|bmp|svg)$/i
+        var pattern = /\.(gif|jpg|jpeg|tiff|png|bmp|svg)$/i
         args.forEach((item, index, object) => {
           var isImage = pattern.test(item)
           if (!isImage) {
